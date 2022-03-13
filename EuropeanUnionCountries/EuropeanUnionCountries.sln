@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32210.238
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EuropeanUnionCountries", "EuropeanUnionCountries\EuropeanUnionCountries.csproj", "{24FE5C23-6ECE-4147-BB37-D9DA16715080}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EuropeanUnionCountries.Tests", "EuropeanUnionCountries.Tests\EuropeanUnionCountries.Tests.csproj", "{BAB92B77-FA34-4BE9-9530-0C452FB61F85}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{24FE5C23-6ECE-4147-BB37-D9DA16715080}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24FE5C23-6ECE-4147-BB37-D9DA16715080}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24FE5C23-6ECE-4147-BB37-D9DA16715080}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24FE5C23-6ECE-4147-BB37-D9DA16715080}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BAB92B77-FA34-4BE9-9530-0C452FB61F85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAB92B77-FA34-4BE9-9530-0C452FB61F85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAB92B77-FA34-4BE9-9530-0C452FB61F85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAB92B77-FA34-4BE9-9530-0C452FB61F85}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {232EEEAB-F766-485A-8BFB-1D295745D05C}
+	EndGlobalSection
+EndGlobal
