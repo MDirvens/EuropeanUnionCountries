@@ -11,8 +11,8 @@ It will open Swagger for application(on picture2):
 ![alt text](https://github.com/MDirvens/DataFiles/blob/main/Pictures/SwaggerEUCountries.png)
 picture2.
 
-- EUcountries/topten/population : Get information on top 10 European Union Countries by population;
-- EUcountries/topten/density : Get information on top 10 European Union Countries by density;
+- EUcountries/topten/population : Get information on top 10 European Union Countries and autonomous territories by population;
+- EUcountries/topten/density : Get information on top 10 European Union Countries and autonomous territories by density;
 - EUcountries/country/{country} : Get information on European Union country or autonomous territories of your choice;
 
 Tests checks the program for errors. To run all press the run all test button(picture3):
