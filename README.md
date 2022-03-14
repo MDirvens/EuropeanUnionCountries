@@ -15,6 +15,6 @@ picture2.
 - EUcountries/topten/density : Get information on top 10 European Union Countries and autonomous territories by density;
 - EUcountries/country/{country} : Get information on European Union country or autonomous territories of your choice;
 
-Tests checks the program for errors. To run all press the run all test button(picture3):
+Tests checks the program for errors. To run all press the run all tests button(picture3):
 
 ![alt text](https://github.com/MDirvens/DataFiles/blob/main/Pictures/TestButton.png)
