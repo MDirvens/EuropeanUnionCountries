@@ -1,5 +1,4 @@
-﻿using System.Net;
-using EuropeanUnionCountries.Models;
+﻿using EuropeanUnionCountries.Models;
 using Newtonsoft.Json;
 
 namespace EuropeanUnionCountries.Methods
@@ -15,42 +14,27 @@ namespace EuropeanUnionCountries.Methods
         public  List<EUCountryData> GetEuCountriesData(List<EUCountryName> countries)
         {
             _EUCountriesData.Clear();
-            foreach (var c in countries) _EUCountriesData.Add(GetEUCountryData(c.name));
+            foreach (var c in countries) _EUCountriesData.Add(GetEUCountryDataAsync(c.name).Result);
 
             return _EUCountriesData;
         }
 
-        public EUCountryData GetEUCountryData(string country)
+        public async Task<EUCountryData?> GetEUCountryDataAsync(string country)
         {
-            var webClient = new WebClient();
+            HttpClient client = new HttpClient();
 
-            var json = string.Empty;
-            try
-            {
-                json = webClient.DownloadString((string)configuration["Urls:urlV3"] + country);
-            }
-            catch (Exception)
-            {
-            }
+            var response = client.GetStringAsync((string)configuration["Urls:urlV3"] + country).Result;
 
-            return JsonConvert.DeserializeObject<List<EUCountryData>>(json)[0];
+            return JsonConvert.DeserializeObject<List<EUCountryData>>(response)[0];
         }
 
         public List<EUCountryName> GetEuCountriesNamesList()
         {
-            var webClient = new WebClient();
+            HttpClient client = new HttpClient();
 
-            var json = string.Empty;
-            try
-            {
-                json = webClient.DownloadString((string)configuration["Urls:urlV2"]);
-            }
-            catch (Exception)
-            {
+            var response = client.GetStringAsync((string)configuration["Urls:urlV2"]).Result;
 
-            }
-
-            return JsonConvert.DeserializeObject<List<EUCountryName>>(json);
+            return JsonConvert.DeserializeObject<List<EUCountryName>>(response);
         }
     }
 }

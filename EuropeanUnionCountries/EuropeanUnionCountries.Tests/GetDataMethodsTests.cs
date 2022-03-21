@@ -48,10 +48,10 @@ namespace EuropeanUnionCountries.Tests
             var nativeName = "Latvija";
 
             //Act
-            var result = data.GetEUCountryData(country);
+            var result = data.GetEUCountryDataAsync(country);
 
             //Asert
-            Assert.AreEqual(nativeName, result.name.nativeName.First().Value.common);
+            Assert.AreEqual(nativeName, result.Result.name.nativeName.First().Value.common);
         }
 
         [TestMethod]
