@@ -16,7 +16,6 @@ Tests checks the program for errors.
    
 Things I plan to improve:
 
-- change WebClient to HttpClient,
 - naming,
 - add Dependency Injection
 - improve architecture,
