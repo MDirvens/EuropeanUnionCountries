@@ -1,43 +1,51 @@
-﻿using EuropeanUnionCountries.DataStorage;
-using EuropeanUnionCountries.Methods;
+﻿using EuropeanUnionCountries.Core.Models;
+using EuropeanUnionCountries.Core.Services;
 using Microsoft.AspNetCore.Mvc;
-using EuropeanUnionCountries.Models;
 
 namespace EuropeanUnionCountries.Controllers
 {
+
     [Route("EUcountries")]
     [ApiController]
-    public class TopTenPopulation : ControllerBase
+    public class TopTenPopulation : ApiControllerBase
     {
-        public EUCountriesData EUCountriesData = new();
-        private readonly ResponseDataMethods data = new();
-        List<EUCountryName> countries; 
+        public TopTenPopulation(ICountryService countryService,
+                                IMapperService mapper,
+                                IGetDataService getData,
+                                IAddDataService addData)
+        {
+            _countryService = countryService;
+            _mapper = mapper;
+            _getData = getData;
+            _addData = addData;
+            
+            _addData.addDataToDatabase(_getData.GetEuCountriesData());
+            _countryService.AddDensity();
+        }
 
         [HttpGet]
         [Route("topten/population")]
-        public IActionResult GetTopTenPopulation()
+        public IActionResult GetTopTenPopulation1()
         {
-            return Ok(data.ResponseTopTenPopulationCountriesData());
+            return Ok(_countryService.GetTopTenPopulation());
         }
 
         [HttpGet]
         [Route("topten/density")]
-        public IActionResult GetTopTenDensity()
+        public IActionResult GetTopTenDensity1()
         {
-            return Ok(data.ResponseTopTenDensityCountriesData());
+            return Ok(_countryService.GetTopTenDensity());
         }
 
         [HttpGet]
         [Route("country/{country}")]
         public IActionResult GetCountryData(string country)
         {
-            countries = EUCountriesData.EUCountriesNameList;
-
-            if (countries.Any(c => c.name.ToLower() == country.ToLower()))
+            if (_countryService.CountryExist(country))
             {
-                return Ok(data.ResponseCountryData(country));
+                return Ok(_countryService.GetByName(country));
             }
-            
+
             return BadRequest("Not a EU country in English ");
         }
     }
