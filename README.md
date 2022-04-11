@@ -16,11 +16,6 @@ Tests checks the program for errors.
    
 Things I plan to improve:
 
-- naming,
-- add Dependency Injection
-- improve architecture,
-- add mocks to tests,
-- change code to be asynchronous,
-- store data to SQL database.   
-   
-   
+- Rewrite tests
+- Naming
+- store data to SQL database.    
